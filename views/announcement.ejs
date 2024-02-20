@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUP Announcements</title> 
+
+    <link rel="stylesheet" href="/css/announcements_events.css">
+
+     
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo.jpg" alt="SUP Logo">
+        </div>
+        <div class="social-media">
+            <!-- social media links and icons -->
+            <a href="link-to-facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
+        <!-- Navigation -->
+        <nav>
+            <!-- Regular navigation for larger screens -->
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/membership">Membership</a></li>
+                <li><a href="#about">About SUP</a></li>
+                <li><a href="/sup_chairs">SUP Chairs</a></li>
+                <li><a href="/gallery">SUP Gallery</a></li>
+            </ul>
+
+            <!-- Dropdown select box for small screens -->
+            <select id="mobile-nav">
+                <option value="" selected disabled>Menu</option>
+                <option value="./">Home</option>
+                <option value="/contact">Contact Us</option>
+                <option value="/membership">Membership</option>
+                <option value="#about">About SUP</option>
+                <option value="/sup_chairs">SUP Chairs</option>
+                <option value="/gallery">SUP Gallery</option>
+            </select>
+        </nav>
+
+        <!-- Hero Image -->
+        <div class="hero">
+            <img src="images/announcement_hero.jpg" alt="SUP Hero Image">
+            <h4>Vanguard Student Unification Party</h4>
+            <h1><span class="letter-S">s</span><span class="letter-U">u</span><span class="letter-P">p</span></h1>
+            <p>By The Masses, For The Masses, and Of The Masses</p>
+        </div>
+    </header>
+    <main>
+        <section id="announcements">
+            <h2>Announcements</h2>
+            <div id="announcements-container">
+                <% announcements.forEach(function(announcement) { %>
+                    <div>
+                        <h3><%= announcement.title %></h3>
+                        <p><%= announcement.content %></p>
+                        <p>Date Posted: <%= announcement.date %></p>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-media">
+            <!-- social media-->
+            <a href="link-to-facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2023 Vanguard Student Unification Party. All Rights Reserved.</p>
+        <p><a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
+    </footer>
+    <script src="scripts/home.js"></script>
+
+    <!-- Vue.js script -->
+    <script>
+        new Vue({
+            el: '#announcements-container',
+            data: {
+                announcements: [
+                    {
+                        id: 1,
+                        title: 'Announcement 1',
+                        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        date: '2023-12-01'
+                    },
+                    {
+                        id: 2,
+                        title: 'Announcement 2',
+                        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+                        date: '2023-12-15'
+                    },
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

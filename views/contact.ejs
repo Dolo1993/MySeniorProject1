@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sup Contact page</title>
+    <link rel="stylesheet" href="/css/membership_contact.css">
+ 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+</head>
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="SUP Logo">
+        </div> 
+        <div class="social-media">
+            <!-- social media links and icons -->
+            <a href="link-to-facebook" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="/images/instagram.png" alt="Instagram"></a>   
+        </div>
+        <nav>
+            <!-- Regular navigation for larger screens -->
+            <ul>
+                <li><a href="./">Home</a></li> 
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/membership">Membership</a></li>
+                <li><a href="#about">About SUP</a></li> 
+                <li><a href="/sup_chairs">SUP Chairs</a></li>  
+                <li><a href="/gallery">SUP Gallery</a></li> 
+            </ul>
+
+            <!-- Dropdown select box for small screens -->
+            <select id="mobile-nav">
+                <option value="" selected disabled>Menu</option>
+                <option value="./">Home</option>
+                <option value="/contact">Contact Us</option>
+                <option value="/membership">Membership</option>
+                <option value="#about">About SUP</option>
+                <option value="/sup_chairs">SUP Chairs</option> 
+                <option value="/gallery">SUP Gallery</option>
+            </select>
+        </nav> 
+        <!-- Hero Image -->
+        <div class="hero">
+            <img src="/images/home_hero-image.jpg" alt="SUP Hero Image"> 
+            <h4>Vanguard Student Unification Party</h4>
+            <h1><span class="letter-S">s</span><span class="letter-U">u</span><span class="letter-P">p</span></h1>
+            <p>By The Masses, For The Masses, and Of The Masses</p>
+        </div>
+    </header>
+    <main> 
+        <!-- sup leadership -->
+        <section id="leadership">
+            <div class="sup-leadership">
+                <div class="leader">
+                    <h3>Chairman</h3>
+                    <p>Name: John Doe</p> 
+                    <p>phone: +231xxxxxxx</p>
+                    <p>Email: john.doe@example.com</p>
+                </div>
+
+                <div class="leader">
+                    <h3>Co-Chairman</h3>
+                    <p>Name: Jane Smith</p> 
+                    <p>phone: +231xxxxxxx</p>
+                    <p>Email: jane.smith@example.com</p>
+                </div>
+
+                <div class="leader">
+                    <h3>Secretary General</h3>
+                    <p>Name: Alex Johnson</p> 
+                    <p>phone: +231xxxxxxx</p>
+                    <p>Email: alex.johnson@example.com</p>
+                </div>
+
+                <div class="leader">
+                    <h3>Militant Brigade</h3>
+                    <p>Name: Mike Anderson</p> 
+                    <p>phone: +231xxxxxxx</p>
+                    <p>Email: mike.anderson@example.com</p>
+                </div>
+
+                <div class="leader">
+                    <h3>Militant Chair</h3> 
+                    <p>Name: Emily Davis</p> 
+                    <p>phone: +231xxxxxxx</p>
+                    <p>Email: emily.davis@example.com</p>
+                </div>
+
+                <div class="leader">
+                    <h3>Women's Precendence Chair</h3>
+                    <p>Name: Sarah Wilson</p> 
+                    <p>phone: +231xxxxxxx</p>
+                    <p>Email: sarah.wilson@example.com</p>
+                </div>
+            </div>
+        </section> 
+        <!-- contact area -->
+        <section id="contact">
+            <div class="contact-container">
+                <h2>Contact Us</h2>
+                <form id="contact-form" action="/path/to/your/contact/script" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-media">
+            <!-- social media-->
+            <a href="link-to-facebook" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="/images/instagram.png" alt="Instagram"></a>   
+        </div>
+        <p>&copy; 2023 Vanguard Student Unification Party. All Rights Reserved.</p>
+        <p><a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
+    </footer> 
+    <script src="/js/home.js"></script> 
+</body>
+</html>

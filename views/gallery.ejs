@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sup Gallery</title>
+    <link rel="stylesheet" href="/css/gallery.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>Sup Gallery</h1>
+    </header>
+
+    <div class="gallery-container">
+        <div class="image-slider">
+            <% images.forEach(function(image) { %>
+            <div class="image-slide">
+                <img src="<%= image.path %>" alt="<%= image.alt %>">
+            </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % document.querySelectorAll('.image-slide').length;
+            showSlide();
+        } 
+        
+        function showSlide() {
+            const slider = document.querySelector('.image-slider');
+            const slideWidth = document.querySelector('.image-slide').offsetWidth;
+            slider.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+        }
+
+        setInterval(showNextSlide, 3000); 
+
+        // Prevent right-click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

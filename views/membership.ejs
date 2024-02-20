@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Form</title>
+    <link rel="stylesheet" href="/css/membership_contact.css">
+
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="SUP Logo">
+        </div>
+        <div class="social-media">
+            <!-- social media links and icons -->
+            <a href="link-to-facebook" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="/images/instagram.png" alt="Instagram"></a>
+        </div>
+        <!-- Navigation -->
+        <nav>
+            <!-- Regular navigation for larger screens -->
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/membership">Membership</a></li>
+                <li><a href="#about">About SUP</a></li>
+                <li><a href="/sup_chairs">SUP Chairs</a></li>
+                <li><a href="/gallery">SUP Gallery</a></li>
+            </ul>
+
+            <!-- Dropdown select box for small screens -->
+            <select id="mobile-nav">
+                <option value="" selected disabled>Menu</option>
+                <option value="./">Home</option>
+                <option value="/contact">Contact Us</option>
+                <option value="/membership">Membership</option>
+                <option value="#about">About SUP</option>
+                <option value="/sup_chairs">SUP Chairs</option>
+                <option value="/gallery">SUP Gallery</option>
+            </select>
+        </nav>
+        <!-- Hero Image -->
+        <div class="hero">
+            <img src="/images/membership_hero.jpg" alt="SUP Hero Image">
+            <h4>Vanguard Student Unification Party</h4>
+            <h1><span class="letter-S">s</span><span class="letter-U">u</span><span class="letter-P">p</span></h1>
+            <p>By The Masses, For The Masses, and Of The Masses</p>
+        </div>
+    </header>
+    <main>
+        <h3>Membership Form</h3>
+        <form action="submit_membership.php" method="post">
+            <section id="personal-info">
+                <h2>Personal Information</h2>
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="placeofbirth">Place of Birth:</label>
+                <input type="text" id="placeofbirth" name="placeofbirth" required>
+            </section>
+            <section id="university-info">
+                <h2>University Information</h2>
+                <label for="university">University:</label>
+                <select id="university" name="university" required>
+                    <option value="" selected disabled>Select University</option>
+                    <option value="ul">University of Liberia</option>
+                    <option value="cu">Cuttington University</option>
+                    <option value="smp">Stella Maris Polytechnic</option>
+                    <option value="tu">William V.S. Tubman University</option>
+                    <option value="ameu">African Methodist Episcopal University (AMEU)</option>
+                    <option value="umu">United Methodist University (UMU)</option>
+                    <option value="amrz">AME Zion University</option>
+                    <option value="nccc">Nimba County Community College</option>
+                    <option value="gcc">Grand Bassa Community College</option>
+                    <option value="bctc">Bong County Technical College</option>
+                    <option value="kni">Kofi Annan Institute for Conflict Transformation</option>
+                    <option value="bwi">Booker Washington Institute (BWI)</option>
+                    <option value="las">Louis Arthur Grimes School of Law (University of Liberia)</option>
+                    <option value="mpc">Mother Patern College of Health Sciences</option>
+                    <option value="scst">Starz College of Science and Technology</option>
+
+                </select>
+            </section>
+
+            <!-- Additional Information  -->
+            <section id="additional-info">
+                <h2>Additional Information</h2>
+                <label for="interests">Interests:</label>
+                <textarea id="interests" name="interests" rows="4"></textarea>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+            </section>
+
+            <!-- Agreement Section -->
+            <section id="agreement">
+                <p>By submitting this form, you affirm that the information provided 
+                is accurate to the best of your knowledge. Additionally, you acknowledge 
+                and accept the terms and conditions outlined by the Vanguard Student Unification Party.</p>
+            </section>
+
+            <!-- Submit Button -->
+            <button type="apply">Apply</button>
+        </form>
+    </main>
+    <footer>
+        <div class="social-media">
+            <!-- social media-->
+            <a href="link-to-facebook" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="/images/instagram.png" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2023 Vanguard Student Unification Party. All Rights Reserved.</p>
+        <p><a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
+    </footer>
+    <script src="/js/home.js"></script>
+
+</body>
+
+</html>

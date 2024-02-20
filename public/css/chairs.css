@@ -1,0 +1,243 @@
+/* default styles */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+} 
+
+
+
+/* body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e68ca1;
+} 
+.logo {
+    float: left; 
+    margin-bottom: 12px; 
+} 
+
+
+
+/* header */
+header {
+    background-color: #0F9D58;
+    color: #fff;
+    padding: 20px; 
+    text-align: center;
+}
+
+
+ /* Regular navigation styles */
+nav ul {
+    list-style: none;
+}
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+nav a:hover {
+    color: #351C15; 
+}
+
+
+
+
+/* Style for the dropdown select box */
+nav select {
+    display: none;
+    float: right;
+    margin: 10px;
+    padding: 5px;
+} 
+
+
+
+/* hero section */
+.hero {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+.hero img {
+    width: 100%;
+    height: 400px; 
+    filter: brightness(0.9);
+    object-fit: cover;
+}
+.hero h1 { 
+    position: absolute;
+    top: 60%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 4.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold;
+}  
+.hero h4{ 
+    position: absolute;
+    top: 20%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold;
+} 
+.hero p { 
+    background-color: khaki; 
+    color: #000;
+    position: absolute;
+    top: 80%;
+    left: 50%; 
+    font-weight: bold; 
+    font-family: 'Courier New', Courier, monospace;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+ /* The color of SUP */
+.hero h1 .letter-S,
+.hero h1 .letter-U,
+.hero h1 .letter-P {
+    animation: rotateColors 10s infinite linear; 
+}
+/*animation for rotating colors of sup */
+@keyframes rotateColors {
+    0% {
+        color: khaki;
+        transform: rotate(0deg);
+    }
+    33% {
+        color: red;
+        transform: rotate(120deg);
+    }
+    66% {
+        color: green;
+        transform: rotate(240deg);
+    }
+    100% {
+        color: khaki;
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+  /* main section styles */
+main {
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards section {
+    flex: 0 0 calc(33.333% - 20px);
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 8px; 
+    
+    overflow: hidden;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cards h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.cards p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.cards img {
+    width: 100%;
+    height: auto;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+ 
+
+
+
+
+ /* footer */ 
+ footer {
+    background-color: #333;
+    padding: 40px 0;
+} 
+footer P{ 
+   color: #fff;
+   font-weight: bold; 
+   text-align: center;
+}
+/* social styles */
+.social-media a { 
+    float: right;
+    margin: 0 10px;
+}
+.social-media img {
+    width: 30px;
+    height: auto; 
+    margin-bottom: 5px;
+ 
+}
+
+ 
+@media screen and (max-width: 768px) {
+    #images-container {
+        flex-direction: column;
+    }
+
+    .image-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+} 
+/* Responsive styles for small screens */
+@media (max-width: 767px) {
+    .cards section {
+        flex: 0 0 calc(50% - 20px); 
+    }
+} 
+ 
+/*  media query to show the dropdown on small screens */
+@media screen and (max-width: 600px) {
+    nav ul {
+        display: none;
+    }
+
+    nav select {
+        display: block;
+    }
+}

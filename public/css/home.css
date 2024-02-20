@@ -1,0 +1,441 @@
+ /* default styles */
+ body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+} 
+
+
+
+/* body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+} 
+.logo {
+    float: left; 
+    margin-bottom: 12px; 
+} 
+
+
+
+/* header */
+header {
+    background-color: #0F9D58;
+    color: #fff;
+    padding: 20px; 
+    text-align: center;
+}
+
+
+ /* Regular navigation styles */
+nav ul {
+    list-style: none;
+}
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+nav a:hover {
+    color: #351C15; 
+}
+
+
+
+
+/* Style for the dropdown select box */
+nav select {
+    display: none;
+    float: right;
+    margin: 10px;
+    padding: 5px;
+} 
+
+
+
+/* hero section */
+.hero {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+.hero img {
+    width: 100%;
+    height: 400px; 
+    filter: brightness(0.9);
+    object-fit: cover;
+}
+.hero h1 { 
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 4.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold;
+}  
+.hero h4{ 
+    position: absolute;
+    top: 10%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold;
+} 
+.hero p { 
+    background-color: khaki; 
+    color: #000;
+    position: absolute;
+    top: 70%;
+    left: 50%; 
+    font-weight: bold; 
+    font-family: 'Courier New', Courier, monospace;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+ /* The color of SUP */
+.hero h1 .letter-S,
+.hero h1 .letter-U,
+.hero h1 .letter-P {
+    animation: rotateColors 10s infinite linear; 
+}
+/*animation for rotating colors of sup */
+@keyframes rotateColors {
+    0% {
+        color: khaki;
+        transform: rotate(0deg);
+    }
+    33% {
+        color: red;
+        transform: rotate(120deg);
+    }
+    66% {
+        color: green;
+        transform: rotate(240deg);
+    }
+    100% {
+        color: khaki;
+        transform: rotate(360deg);
+    }
+}
+
+
+
+ 
+/* main section */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+} 
+
+
+
+
+/* annou. event and images section */
+#announcements-container, #events-container, #images-container {
+    display: flex;
+    flex-wrap: wrap;
+} 
+#announcements {  
+    border-radius: 3px; 
+    font-size: 12px;
+    float: right;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}  
+#announcements h2:hover{
+    color: #ff0000; 
+}
+#events { 
+    background-color: khaki;  
+    font-size: 12px;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}  
+#events h2:hover{
+    color: #ff0000;
+}  
+
+
+
+/* image card section */
+.image-card {
+    width: calc(33.3333% - 20px);
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; 
+}
+
+.image-card:hover {
+    transform: scale(1.05);
+}
+
+.image-card img {
+    width: 100%;
+    height: auto; 
+    border-radius: 8px 8px 0 0;
+    border: 1px solid red;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); 
+    
+}
+
+.image-card p {
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+} 
+.image-card, p{ 
+    font-family: 'Courier New', Courier, monospace;
+ } 
+
+
+
+
+ /* Forum */
+#forum p {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: rgba(240, 230, 140, 0.39);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid red;
+    cursor: pointer;
+    transition: color 0.3s;
+    animation: changeBackgroundColor 10s infinite alternate; 
+}
+
+#forum p:hover {
+    color: red;
+}
+
+/* changing background color */
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: rgba(240, 230, 140, 0.39);
+    }
+    16.67% {
+        background-color: #297fb931; 
+    }
+    33.33% {
+        background-color: #ff5733; 
+    }
+    50% {
+        background-color: #3399ff; 
+    }
+    66.67% {
+        background-color: #ffcc00; 
+    }
+    83.33% {
+        background-color: #9900cc; 
+    }
+    100% {
+        background-color: #00cc66; 
+    }
+}
+
+
+ 
+/* text section */ 
+#text h2{
+    font-size: 1em; 
+    font-weight: bolder;
+} 
+#text p {
+  color: rgb(20, 10, 10);
+  font-family:Verdana, Geneva, Tahoma, sans-serif; 
+  line-height: 1.5; 
+  max-width: 800px;
+  
+}
+
+
+/*Videos Section */
+#videos {
+    background: linear-gradient(to right, #ff0000, #00ff00, #0000ff);  
+    color:black;
+    padding: 50px 0;
+    text-align: center; 
+  }
+  #videos h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  #videos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .video-card {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+  .video-card iframe {
+    width: 100%;
+    height: 180px; 
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  .video-card p { 
+    margin-top: 10px; 
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .video-card:hover iframe {
+    transform: scale(1.1);
+  }  
+
+
+
+
+ /* weather and christmas section */
+#wc-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; 
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    flex-wrap: wrap;
+}
+#weather, #christmas-section {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+    background-color: white;
+}
+#current-temp {
+    font-size: 24px;
+    color:rgb(243, 220, 17);
+}
+figure {
+    margin-top: 5px;
+}
+#weather-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: rotateIcon 2s infinite linear;  
+} 
+#weather h2{
+    font-size: 0.9em;
+}
+#christmas-section hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+.label {
+    color: black
+}
+#daysleft {
+    font-size: 18px;
+    color:rgb(40, 17, 243);
+} 
+#lastVisited{
+    font-size: 18px;
+    color:rgb(243, 153, 17);
+}
+/* rotating the weather icon */
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#weather:hover, #christmas-section:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+  
+
+
+ /* footer */ 
+footer {
+    background-color: #333;
+    padding: 40px 0;
+} 
+footer P{ 
+   color: #fff;
+   font-weight: bold; 
+   text-align: center;
+}
+/* social styles */
+.social-media a { 
+    float: right;
+    margin: 0 10px;
+}
+.social-media img {
+    width: 30px;
+    height: auto; 
+    margin-bottom: 5px;
+ 
+}
+
+
+/* responsive view */
+ 
+@media only screen and (max-width: 600px) {
+    #wc-container {
+        flex-direction: column;  
+        align-items: center;  
+    }
+
+    #weather, #christmas-section {
+        width: 100%;  
+        margin-bottom: 15px;  
+    }
+} 
+
+ 
+@media screen and (max-width: 768px) {
+    #images-container {
+        flex-direction: column;
+    }
+
+    .image-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+} 
+ 
+/*  media query to show the dropdown on small screens */
+@media screen and (max-width: 600px) {
+    nav ul {
+        display: none;
+    }
+
+    nav select {
+        display: block;
+    }
+}

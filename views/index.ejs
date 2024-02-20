@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUP</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="SUP Logo">
+        </div> 
+        <div class="social-media">
+            <a href="link-to-facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>   
+        </div>
+        <nav>
+            <!-- Regular navigation for larger screens -->
+            <ul>
+                <li><a href="./">Home</a></li> 
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/membership">Membership</a></li>
+                <li><a href="#about">About SUP</a></li> 
+                <li><a href="/sup_chairs">SUP Chairs</a></li>  
+                <li><a href="/gallery">SUP Gallery</a></li> 
+            </ul>
+
+            <!-- Dropdown select box for small screens -->
+            <select id="mobile-nav">
+                <option value="" selected disabled>Menu</option>
+                <option value="./">Home</option>
+                <option value="/contact">Contact Us</option>
+                <option value="/membership">Membership</option>
+                <option value="#about">About SUP</option>
+                <option value="/sup_chairs">SUP Chairs</option> 
+                <option value="/gallery">SUP Gallery</option>
+            </select>
+        </nav> 
+        <audio id="background-music" src="/audios/rudeboy.mp3" autoplay loop></audio> 
+        <button id="startAudioButton">Start Audio</button>
+        <div class="hero">
+            <img src="images/home_hero-image.jpg" alt="SUP Hero Image"> 
+            <h4>Vanguard Student Unification Party</h4>
+            <h1><span class="letter-S">s</span><span class="letter-U">u</span><span class="letter-P">p</span></h1>
+            <p>By The Masses, For The Masses, and Of The Masses</p>
+        </div>
+    </header>
+    <main>
+        <section id="announcements">
+            <a href="/announcement">
+                <h2>Announcements</h2>     
+            </a>
+        </section>
+        
+        <section id="events">
+            <a href="/events">
+                <h2>Upcoming Events</h2>
+            </a>
+        </section>
+        <section id="forum">
+            <p>Central Committee and Politburo Only! Join the <a href="https://chat.whatsapp.com/JDxVvofxFtuBCYajOCZ2kB">Forum</a>.</p>
+        </section>
+
+        <section id="images">
+            <div id="images-container">
+                <div class="image-card">
+                    <img src="images/image1.jpg" alt="Image 1">
+                    <p>Sup in service</p>
+                </div>
+                <div class="image-card">
+                    <img src="images/image2.jpg" alt="Image 2">
+                    <p>Anniversary celebration</p>
+                </div> 
+                <div class="image-card">
+                    <img src="images/image3.jpg" alt="Image 2">
+                    <p>Women's Precendence Chair</p>
+                </div>
+            </div>
+        </section> 
+        <section id="text">
+            <div class="text-area">
+                <h2>Explore the Beauty of SUP</h2>
+                <p>Immerse yourself in the captivating world of Stand-Up Paddleboarding (SUP). As you scroll through the stunning images of our community and events, take a moment to envision the serenity and excitement that awaits you. We believe in fostering a sense of unity and adventure, and SUP is the perfect platform to experience both. 
+                Prepare to be amazed by the incredible moments captured during our SUP journeys.</p>
+            </div> 
+        </section> 
+        <section id="videos">
+            <div id="videos-container">
+                <div class="video-card">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mToGKiQUCik" frameborder="0" allowfullscreen></iframe>
+                    <p>SUP Petition Legislature</p>
+                </div>
+                <div class="video-card">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5JCpwwTAvf8" frameborder="0" allowfullscreen></iframe>
+                    <p> SUP reacts to Killer Jefferson Koijee</p>
+                </div>
+                <div class="video-card">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/cIeFR0EHouU" frameborder="0" allowfullscreen></iframe>
+                    <p>SUP celebtates graduation</p>
+                </div>    
+            </div>
+        </section>  
+        <section id="wc-container">
+            <section id="weather">
+                <h4>Weather</h4>
+                <p>Current temperature in Monrovia, Liberia is <span id="current-temp"></span> &deg;F</p>
+                <figure> 
+                    <h2>Current Condition Icon</h2>
+                    <img src="" alt="" id="weather-icon" />
+                    <figcaption></figcaption>
+                </figure>
+            </section> 
+            <section id="christmas-section"> 
+                <p>Last visited: <span id="lastVisited"></span> days ago</p>
+                <hr>
+                <p><span class="label">Days until Christmas:</span> <span id="daysleft"></span></p>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <div class="social-media">
+            <a href="link-to-facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2023 Vanguard Student Unification Party. All Rights Reserved.</p>
+        <p><a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
+    </footer> 
+    <script src="js/home.js"></script> 
+    <script src="js/music.js"></script>
+</body>
+</html>
