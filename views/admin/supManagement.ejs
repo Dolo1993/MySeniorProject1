@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUP Management</title> 
+    <link rel="stylesheet" href="/css/management.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome To SUP Management</h1>
+
+        <div class="columns">
+            <div class="column">
+                <h2>Membership Form Received</h2>
+                <ul class="membership-list">
+                    <% membershipSubmissions.forEach(submission => { %>
+                        <li>
+                            <strong>Name:</strong> <%= submission.fullname %><br>
+                            <strong>Email:</strong> <%= submission.email %><br>
+                            <a href="/admin/download-membership/<%= submission.id %>">Download Form</a>
+                            <form action="/admin/delete-membership" method="POST">
+                                <input type="hidden" name="submissionId" value="<%= submission.id %>">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Contact Messages Received</h2>
+                <ul class="contact-list">
+                    <% contactMessages.forEach(message => { %>
+                        <li>
+                            <strong>Name:</strong> <%= message.name %><br>
+                            <strong>Email:</strong> <%= message.email %><br>
+                            <strong>Message:</strong> <%= message.message %><br>
+                            <form action="/admin/delete-message" method="POST">
+                                <input type="hidden" name="messageId" value="<%= message.id %>">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
