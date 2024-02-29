@@ -1,90 +1,75 @@
-/* default margin and padding */
+ /* default */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* body*/
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color:khaki;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-h2 { 
-    margin-bottom: 5px; 
-    margin-top: 40px; 
-    font-size: 20px;
-    text-align: center;  
-    color: green;
-  } 
-  h1{ 
-    background-color: white; 
-    color: red;  
-     font-size: 30px;
-    margin-bottom: 20px;
-    text-align: center; 
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* the body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0e68c;
+  color: #333;
+}
+
+/* the css for the management container */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px; 
+  border: 1px solid red;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #ff0000;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.column {
+  flex-basis: 40%;
+  background-color: green;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.column:hover {
+  transform: translateY(-5px);
+}
+
+.column a {
+  display: block;
+  padding: 20px;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.column a:hover {
+  background-color: black;
+}
+
+@media (max-width: 600px) {
   .columns {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .column {
-    width: 48%;  
-  }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  li {
-    background: #fff;
-    padding: 20px;
+    flex-basis: 100%;
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
-  a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  button {
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 3px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsive*/
-  @media screen and (max-width: 768px) {
-    .columns {
-      flex-direction: column;
-    }
-  
-    .column {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-  
+}

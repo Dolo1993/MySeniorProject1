@@ -29,10 +29,43 @@ await contactModel.saveContactMessage(formData.name, formData.email, formData.me
 // Set success message in session
 req.session.successMessage = "Contact Form Submitted Successfully! Thank you for contacting us. We will get back to you as soon as possible.";
 
-// Redirect back to the contact page
  res.redirect('/contact');
 } catch (error) {
         console.error('Error submitting contact form:', error);
         res.status(404).send('Internal Server Error');
     }
 };
+
+// Function to render the contact messages page
+exports.displayContactMessagesPage = async (req, res) => {
+    try {
+        // Fetch all contact messages from the database
+        const contactMessages = await contactModel.getAllContactMessages();
+        res.render('admin/contact-messages', { contactMessages });
+    } catch (error) {
+        console.error('Error fetching contact messages:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Function to delete a contact message 
+exports.deleteContactMessage = async (req, res) => {
+    try {
+        const messageId = req.body.messageId;
+        
+        // Retrieve confirmation status
+        const confirmDelete = req.body.confirmDelete;
+        if (confirmDelete !== 'true') {
+            return res.redirect('/admin/contact-messages');
+        }
+
+        // Delete the contact message from the database
+        await contactModel.deleteContactMessage(messageId);
+        res.redirect('/admin/contact-messages');
+    } catch (error) {
+        console.error('Error deleting contact message:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+ 

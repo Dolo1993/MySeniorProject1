@@ -3,11 +3,12 @@ const pool = require('../database/db');
 // Function to insert membership data into the database
 async function createMembership(formData) {
     const { fullname, email, phone, dob, placeofbirth, university, interests, comments } = formData;
+    const currentDate = new Date().toISOString();  
     const query = `
-    INSERT INTO membership (fullname, email, phone, dob, placeofbirth, university, interests, comments)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-`;
-    const values = [fullname, email, phone, dob, placeofbirth, university, interests, comments];
+        INSERT INTO membership (fullname, email, phone, dob, placeofbirth, university, interests, comments, date_sent)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    `;
+    const values = [fullname, email, phone, dob, placeofbirth, university, interests, comments, currentDate];
     
     try {
         const result = await pool.query(query, values);
@@ -15,12 +16,13 @@ async function createMembership(formData) {
     } catch (error) {
         throw error;
     }
-}  
+}
 
 // Function to fetch all membership submissions from the database
 async function getAllMemberships() {
     const query = `
         SELECT * FROM membership
+        ORDER BY date_sent DESC
     `;
     try {
         const result = await pool.query(query);
@@ -43,9 +45,24 @@ async function deleteMembership(submissionId) {
     } catch (error) {
         throw error;
     }
+} 
+
+// Function to fetch a membership submission by its ID from the database
+async function getMembershipById(id) {
+    const query = `
+        SELECT * FROM membership
+        WHERE id = $1
+    `;
+    const values = [id];
+    try {
+        const result = await pool.query(query, values);
+        return result.rows[0]; 
+    } catch (error) {
+        throw error;
+    }
 }
 
 
  
 
-module.exports = {createMembership, getAllMemberships, deleteMembership};
+module.exports = {createMembership, getAllMemberships, deleteMembership, getMembershipById};

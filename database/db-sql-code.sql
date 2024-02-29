@@ -19,4 +19,9 @@ CREATE TABLE IF NOT EXISTS contact_messages (
     email VARCHAR(100) NOT NULL,
     message TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+); 
+
+--  added date column in the table
+ALTER TABLE membership
+ADD COLUMN date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+

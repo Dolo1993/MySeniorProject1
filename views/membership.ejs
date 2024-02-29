@@ -51,15 +51,25 @@
             <p>By The Masses, For The Masses, and Of The Masses</p>
         </div>
     </header>
-    <main>
-        <h3>Membership Form</h3> 
-        <% if (errors.length > 0) { %>
-            <ul>
-                <% errors.forEach(error => { %>
-                    <li><%= error %></li>
-                <% }) %>
-            </ul>
+    <main>  
+        <h3>Membership Form</h3>  
+        <% if (errors && Object.keys(errors).length > 0) { %>
+            <div class="error-message">
+                <ul>
+                    <% Object.values(errors).forEach(error => { %>
+                        <li><%= error %></li>
+                    <% }) %>
+                </ul>
+            </div>
         <% } %>
+
+        <% if (!errors && successMessage) { %>
+            <div class="success-message">
+                <p><%= successMessage %></p>
+            </div>
+        <% } %> 
+        
+        
         <form action="/submit-membership" method="post">
             <section id="personal-info">
                 <h2>Personal Information</h2>
@@ -83,21 +93,21 @@
                 <label for="university">University:</label>
                 <select id="university" name="university" required>
                     <option value="" selected disabled>Select University</option>
-                    <option value="ul">University of Liberia</option>
-                    <option value="cu">Cuttington University</option>
-                    <option value="smp">Stella Maris Polytechnic</option>
-                    <option value="tu">William V.S. Tubman University</option>
-                    <option value="ameu">African Methodist Episcopal University (AMEU)</option>
-                    <option value="umu">United Methodist University (UMU)</option>
-                    <option value="amrz">AME Zion University</option>
-                    <option value="nccc">Nimba County Community College</option>
-                    <option value="gcc">Grand Bassa Community College</option>
-                    <option value="bctc">Bong County Technical College</option>
-                    <option value="kni">Kofi Annan Institute for Conflict Transformation</option>
-                    <option value="bwi">Booker Washington Institute (BWI)</option>
-                    <option value="las">Louis Arthur Grimes School of Law (University of Liberia)</option>
-                    <option value="mpc">Mother Patern College of Health Sciences</option>
-                    <option value="scst">Starz College of Science and Technology</option>
+                    <option value="University of Liberia">University of Liberia</option>
+                    <option value="Cuttington University">Cuttington University</option>
+                    <option value="Stella Maris Polytechnic">Stella Maris Polytechnic</option>
+                    <option value="William V.S. Tubman University">William V.S. Tubman University</option>
+                    <option value="African Methodist Episcopal University (AMEU)">African Methodist Episcopal University (AMEU)</option>
+                    <option value="United Methodist University (UMU)">United Methodist University (UMU)</option>
+                    <option value="AME Zion University">AME Zion University</option>
+                    <option value="Nimba County Community College">Nimba County Community College</option>
+                    <option value="Grand Bassa Community College">Grand Bassa Community College</option>
+                    <option value="Bong County Technical College">Bong County Technical College</option>
+                    <option value="Kofi Annan Institute for Conflict Transformation">Kofi Annan Institute for Conflict Transformation</option>
+                    <option value="Booker Washington Institute (BWI)">Booker Washington Institute (BWI)</option>
+                    <option value="Louis Arthur Grimes School of Law (University of Liberia)">Louis Arthur Grimes School of Law (University of Liberia)</option>
+                    <option value="Mother Patern College of Health Sciences">Mother Patern College of Health Sciences</option>
+                    <option value="Starz College of Science and Technology">Starz College of Science and Technology</option>
 
                 </select>
             </section>

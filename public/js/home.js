@@ -91,7 +91,7 @@ function getLastVisited() {
     }
 }
 
-// Call the function to initialize the page
+// function to initialize the page
 calculateDaysUntilChristmas();
 
 // Initialize display elements

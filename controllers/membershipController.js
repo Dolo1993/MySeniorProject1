@@ -1,30 +1,103 @@
 const membershipModel = require('../models/membershipModel');
 const validateMembershipForm = require('../validation/membershipValidation');
+const pdfGenerator = require('../utils/pdfGenerator');
 
-
-//function to render the membership page
+// Function to render the membership page
 exports.getMembershipPage = (req, res) => {
-    res.render('membership');
+    const successMessage = req.session.successMessage;
+    delete req.session.successMessage; 
+    res.render('membership', { successMessage });  
 };
 
-// function to handle form submission
+// Function to handle form submission
 exports.submitMembershipForm = async (req, res) => {
     try {
         const formData = req.body;
+
         // Validate form data
         const errors = validateMembershipForm(formData);
         if (Object.keys(errors).length > 0) {
-            return res.status(404).json({ errors });
+            return res.status(400).render('membership', { errors: Object.values(errors) });
         }
+
+        // Generate the current date
+        const currentDate = new Date();
+
+        // Add the date to the form data
+        formData.date_sent = currentDate;
+
         // Process form data and insert into the database
         await membershipModel.createMembership(formData);
-        res.send('Membership form submitted successfully.');
+
+        // Set success message in session
+        req.session.successMessage = 'Membership form submitted successfully';
+
+        // Redirect back to membership page
+        res.redirect('/membership');
     } catch (error) {
         console.error('Error submitting membership form:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(500).send('Internal Server Error');
     }
-}; 
+};
 
- 
+// Function to render the membership management page
+exports.displayMembershipManagementPage = async (req, res) => {
+    try {
+        // Fetch all membership submissions from the database
+        const membershipSubmissions = await membershipModel.getAllMemberships();
+        res.render('admin/membership', { membershipSubmissions });
+    } catch (error) {
+        console.error('Error fetching membership submissions:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
 
-module.exports = exports;  
+// Function to view a specific membership submission
+exports.viewMembership = async (req, res) => {
+    try {
+        const submission = await membershipModel.getMembershipById(req.params.id);
+        if (!submission) {
+            return res.status(404).send('Membership submission not found');
+        }
+        // Render a view to display the membership submission
+        res.render('admin/viewMembership', { submission });
+    } catch (error) {
+        console.error('Error viewing membership submission:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Function to download a membership form
+exports.downloadMembership = async (req, res) => {
+    try {
+        const submission = await membershipModel.getMembershipById(req.params.id);
+        if (!submission) {
+            return res.status(404).send('Membership submission not found');
+        }
+        // Generate PDF file using utility function
+        const pdfFilePath = await pdfGenerator.generatePDF(submission);
+        // Send the PDF file for download
+        res.download(pdfFilePath, 'membership_form.pdf');
+    } catch (error) {
+        console.error('Error downloading membership form:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Function to delete a membership submission
+exports.deleteMembership = async (req, res) => {
+    try {
+        const { submissionId, confirmDelete } = req.body;
+        if (confirmDelete !== 'true') {
+            return res.status(400).send('Confirmation required for deletion');
+        }
+        // Delete the membership submission from the database
+        await membershipModel.deleteMembership(submissionId);
+        res.redirect('/admin/membership');  
+    } catch (error) {
+        console.error('Error deleting membership submission:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+module.exports = exports;

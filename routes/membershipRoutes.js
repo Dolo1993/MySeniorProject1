@@ -8,7 +8,21 @@ router.get('/membership', (req, res) => {
 });
 
 // Route for handling form submission
-router.post('/submit-membership', membershipController.submitMembershipForm, );
- 
+router.post('/submit-membership', membershipController.submitMembershipForm);
+
+// Route for displaying the membership management page
+router.get('/admin/membership', membershipController.displayMembershipManagementPage);
+
+// Route for viewing a specific membership submission
+router.get('/admin/view-membership/:id', membershipController.viewMembership);
+
+// Route for downloading a membership form
+router.get('/admin/download-membership/:id', membershipController.downloadMembership);
+
+// Route for deleting a membership submission
+router.post('/admin/delete-membership', membershipController.deleteMembership);
+
+
+
 
 module.exports = router;

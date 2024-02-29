@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Membership</title>
+</head>
+<body>
+    <h1>Membership Details</h1>
+    <p><strong>Full Name:</strong> <%= submission.fullname %></p>
+    <p><strong>Email:</strong> <%= submission.email %></p>
+    <p><strong>Phone:</strong> <%= submission.phone %></p>
+    <p><strong>Date of Birth:</strong> <%= new Date(submission.dob).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+    <p><strong>Place of Birth:</strong> <%= submission.placeofbirth %></p>
+    <p><strong>University:</strong> <%= submission.university %></p>
+    <p><strong>Interests:</strong> <%= submission.interests %></p>
+    <p><strong>Comments:</strong> <%= submission.comments %></p>
+</body>
+</html>

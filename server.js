@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const db = require('./database/db');
 const membershipController = require('./controllers/membershipController');
-
+ 
 // Environment variables loaded
 dotenv.config();
 
@@ -47,8 +47,9 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-// Middleware to validate membership form data
-app.use('/submit-membership', membershipController.submitMembershipForm);
+// Middleware to validate regular membership form data
+app.post('/submit-membership', membershipController.submitMembershipForm);
+
 
 // Use routes
 app.use('/', announcementRoutes);
