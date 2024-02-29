@@ -14,6 +14,12 @@ exports.submitMembershipForm = async (req, res) => {
     try {
         const formData = req.body;
 
+        // Check for existing membership
+        const existingMembership = await membershipModel.checkExistingMembership(formData);
+        if (existingMembership) {
+            return res.status(400).render('membership', { errors: ['Membership with the provided information already exists'] });
+        }
+
         // Validate form data
         const errors = validateMembershipForm(formData);
         if (Object.keys(errors).length > 0) {

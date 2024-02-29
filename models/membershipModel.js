@@ -63,6 +63,25 @@ async function getMembershipById(id) {
 }
 
 
+// Function to check for existing membership  
+async function checkExistingMembership(formData) {
+    const { fullname, email, phone } = formData;
+    const query = `
+        SELECT *
+        FROM membership
+        WHERE fullname = $1
+        OR email = $2
+        OR phone = $3
+    `;
+    const values = [fullname, email, phone];
+    try {
+        const result = await pool.query(query, values);
+        return result.rows.length > 0;  
+    } catch (error) {
+        throw error;
+    }
+}
+
  
 
-module.exports = {createMembership, getAllMemberships, deleteMembership, getMembershipById};
+module.exports = {createMembership, getAllMemberships, deleteMembership, getMembershipById, checkExistingMembership};

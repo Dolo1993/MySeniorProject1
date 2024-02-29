@@ -8,7 +8,7 @@ async function saveContactMessage(name, email, message) {
         RETURNING *
     `;
     const values = [name, email, message];
-    
+
     try {
         const result = await pool.query(query, values);
         return result.rows[0]; // Return the inserted row
@@ -16,7 +16,6 @@ async function saveContactMessage(name, email, message) {
         throw error;
     }
 }
-
 
 // Function to fetch all contact messages from the database
 async function getAllContactMessages() {
@@ -46,4 +45,19 @@ async function deleteContactMessage(messageId) {
     }
 }
 
-module.exports = { saveContactMessage, getAllContactMessages, deleteContactMessage };
+// Function to find existing contact message  
+async function findExistingContactMessage(name, email) {
+    const query = `
+        SELECT * FROM contact_messages
+        WHERE name = $1 AND email = $2
+    `;
+    const values = [name, email];
+    try {
+        const result = await pool.query(query, values);
+        return result.rows[0];  
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { saveContactMessage, getAllContactMessages, deleteContactMessage, findExistingContactMessage };

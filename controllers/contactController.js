@@ -1,38 +1,41 @@
 const contactModel = require('../models/contactModel');
 const validateContactForm = require('../validation/contactValidation');
 
-//function to render the contact page Retrieve success message from session
+// Function to render the contact page
 exports.getContactPage = (req, res) => {
     const successMessage = req.session.successMessage;
-    req.session.successMessage = null; 
-
-    
-// Render the contact page with errors and success message
-    const errors = req.session.errors; 
+    req.session.successMessage = null;
+    const errors = req.session.errors;
     res.render('contact', { errors, successMessage });
 };
 
-// function to handle form submission
+// Function to handle form submission
 exports.submitContactForm = async (req, res) => {
     try {
         const formData = req.body;
 
-// Validate form data
- const errors = validateContactForm(formData);
-  if (Object.keys(errors).length > 0) {
-    return res.render('contact', { errors, formData });
-} 
+        // Check for existing contact message 
+        const existingContactMessage = await contactModel.findExistingContactMessage(formData.name, formData.email);
+        if (existingContactMessage) {
+            return res.status(400).render('contact', { errors: ['A contact message with the provided name and email already exists'], formData });
+        }
 
-// Process form data and insert into the database
-await contactModel.saveContactMessage(formData.name, formData.email, formData.message);
+        // Validate form data
+        const errors = validateContactForm(formData);
+        if (Object.keys(errors).length > 0) {
+            return res.render('contact', { errors, formData });
+        }
 
-// Set success message in session
-req.session.successMessage = "Contact Form Submitted Successfully! Thank you for contacting us. We will get back to you as soon as possible.";
+        // Process form data and insert into the database
+        await contactModel.saveContactMessage(formData.name, formData.email, formData.message);
 
- res.redirect('/contact');
-} catch (error) {
+        // Set success message in session
+        req.session.successMessage = "Contact Form Submitted Successfully! Thank you for contacting us. We will get back to you as soon as possible.";
+
+        res.redirect('/contact');
+    } catch (error) {
         console.error('Error submitting contact form:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(500).send('Internal Server Error');
     }
 };
 
@@ -48,11 +51,11 @@ exports.displayContactMessagesPage = async (req, res) => {
     }
 };
 
-// Function to delete a contact message 
+// Function to delete a contact message
 exports.deleteContactMessage = async (req, res) => {
     try {
         const messageId = req.body.messageId;
-        
+
         // Retrieve confirmation status
         const confirmDelete = req.body.confirmDelete;
         if (confirmDelete !== 'true') {
@@ -68,4 +71,4 @@ exports.deleteContactMessage = async (req, res) => {
     }
 };
 
- 
+module.exports = exports;
