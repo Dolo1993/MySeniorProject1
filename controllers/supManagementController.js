@@ -9,12 +9,13 @@ exports.getSupManagementPage = async (req, res) => {
         // Fetch contact messages
         const contactMessages = await contactModel.getAllContactMessages();
         
-        res.render('admin/SUPManagement', { membershipSubmissions, contactMessages });
+        res.render('admin/supManagement', { membershipSubmissions, contactMessages }); // Corrected file name and path
     } catch (error) {
         console.error('Error fetching SUP Management data:', error);
         res.status(404).send('Internal Server Error');
     }
-}; 
+};
+
 
 // function to delete membership submission
 exports.deleteMembershipSubmission = async (req, res) => {
@@ -35,7 +36,7 @@ exports.deleteContactMessage = async (req, res) => {
     try {
         // Delete the contact message
         await contactModel.deleteContactMessage(messageId);
-        res.redirect('/admin/SUPManagement');
+        res.redirect('/admin/supManagement');
     } catch (error) {
         console.error('Error deleting contact message:', error);
         res.status(404).send('Internal Server Error');
