@@ -121,7 +121,7 @@ a:hover {
 @media (max-width: 768px) {
   .membership-list,
   .contact-list {
-    grid-template-columns: 1fr; /* Display in one column */
+    grid-template-columns: 1fr;  
   }
 
   .membership-list li,
