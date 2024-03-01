@@ -116,9 +116,14 @@ a:hover {
 .view-details strong {
   color: #0047ab;
 }
-
+ 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .membership-list,
+  .contact-list {
+    grid-template-columns: 1fr; /* Display in one column */
+  }
+
   .membership-list li,
   .contact-list li,
   .view-details {
