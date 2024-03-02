@@ -106,7 +106,12 @@ h3 {
   
   
   input[type="text"] {
-      width: 50%; 
+      width: 70%;  
+      font-size: 20px;
       max-width: 400px;
-  }
+  } 
+   
+   button[type="submit"] {
+    font-size: 20px;
+}
 }
