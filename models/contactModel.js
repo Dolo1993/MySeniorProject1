@@ -60,4 +60,40 @@ async function findExistingContactMessage(name, email) {
     }
 }
 
-module.exports = { saveContactMessage, getAllContactMessages, deleteContactMessage, findExistingContactMessage };
+// Function to fetch all contact messages from the database  
+async function getAllContactMessagesDesc() {
+    const query = `
+        SELECT * FROM contact_messages
+        ORDER BY created_at DESC
+    `;
+    try {
+        const result = await pool.query(query);
+        return result.rows;
+    } catch (error) {
+        throw error;
+    }
+}
+
+// Function to search contact messages by name
+async function searchContactMessagesByName(name) {
+    const query = `
+        SELECT * FROM contact_messages
+        WHERE name ILIKE $1
+    `;
+    const values = [`%${name}%`];
+    try {
+        const result = await pool.query(query, values);
+        return result.rows;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { 
+    saveContactMessage, 
+    getAllContactMessages, 
+    deleteContactMessage, 
+    findExistingContactMessage,
+    getAllContactMessagesDesc,
+    searchContactMessagesByName
+};

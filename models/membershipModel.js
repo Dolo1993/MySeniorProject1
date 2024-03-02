@@ -62,6 +62,20 @@ async function getMembershipById(id) {
     }
 }
 
+// Function to search membership by name
+async function searchMembershipByName(name) {
+    const query = `
+        SELECT * FROM membership
+        WHERE fullname ILIKE $1
+    `;
+    const values = [`%${name}%`];
+    try {
+        const result = await pool.query(query, values);
+        return result.rows;
+    } catch (error) {
+        throw error;
+    }
+}
 
 // Function to check for existing membership  
 async function checkExistingMembership(formData) {
@@ -82,6 +96,11 @@ async function checkExistingMembership(formData) {
     }
 }
 
- 
-
-module.exports = {createMembership, getAllMemberships, deleteMembership, getMembershipById, checkExistingMembership};
+module.exports = {
+    createMembership,
+    getAllMemberships,
+    deleteMembership,
+    getMembershipById,
+    checkExistingMembership,
+    searchMembershipByName
+};

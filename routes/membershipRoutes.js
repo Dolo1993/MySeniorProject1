@@ -23,6 +23,12 @@ router.get('/admin/download-membership/:id', membershipController.downloadMember
 router.post('/admin/delete-membership', membershipController.deleteMembership);
 
 
+// Route for displaying the membership management page 
+router.get('/admin/membership', membershipController.displayMembershipManagementPage);
+
+// Route for searching membership by name
+router.get('/admin/search-membership', membershipController.searchMembershipByName);
+
 
 
 module.exports = router;

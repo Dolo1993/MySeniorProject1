@@ -9,6 +9,35 @@ exports.getContactPage = (req, res) => {
     res.render('contact', { errors, successMessage });
 };
 
+// Function to render the contact messages page
+exports.displayContactMessagesPage = async (req, res) => {
+    try {
+        // Fetch all contact messages from the database in descending order
+        const contactMessages = await contactModel.getAllContactMessagesDesc();
+        res.render('admin/contact-messages', { contactMessages });
+    } catch (error) {
+        console.error('Error fetching contact messages:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Function to search contact messages by name
+exports.searchContactMessagesByName = async (req, res) => {
+    try {
+        const name = req.query.name;
+        if (!name) {
+            return res.status(400).send('Name parameter is missing');
+        }
+
+        // Search contact messages by name
+        const contactMessages = await contactModel.searchContactMessagesByName(name);
+        res.render('admin/contact-messages', { contactMessages });
+    } catch (error) {
+        console.error('Error searching contact messages by name:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 // Function to handle form submission
 exports.submitContactForm = async (req, res) => {
     try {

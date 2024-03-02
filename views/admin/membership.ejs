@@ -1,5 +1,12 @@
 <link rel="stylesheet" href="/css/view.css">
-<h1>Membership Form Received</h1>
+<h1>Form Received</h1>  
+
+<form action="/admin/search-membership" method="GET">
+    <input type="text" name="name" placeholder="Search by name">
+    <button type="submit">Search</button>
+</form> 
+<a href="/admin/membership">All Members</a>
+
 <ul class="membership-list">
     <% membershipSubmissions.forEach(submission => { %>
         <li>

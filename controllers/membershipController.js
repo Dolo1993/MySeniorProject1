@@ -26,7 +26,7 @@ exports.submitMembershipForm = async (req, res) => {
             return res.status(400).render('membership', { errors: Object.values(errors) });
         }
 
-        // Generate the current date
+        //current date
         const currentDate = new Date();
 
         // Add the date to the form data
@@ -46,7 +46,7 @@ exports.submitMembershipForm = async (req, res) => {
     }
 };
 
-// Function to render the membership management page
+// Function to render the membership management page 
 exports.displayMembershipManagementPage = async (req, res) => {
     try {
         // Fetch all membership submissions from the database
@@ -57,6 +57,24 @@ exports.displayMembershipManagementPage = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
+// Function to search membership submissions by name
+exports.searchMembershipByName = async (req, res) => {
+    try {
+        const name = req.query.name;
+        if (!name) {
+            return res.status(400).send('Name parameter is missing');
+        }
+
+        // Search membership submissions by name
+        const membershipSubmissions = await membershipModel.searchMembershipByName(name);
+        res.render('admin/membership', { membershipSubmissions });
+    } catch (error) {
+        console.error('Error searching membership submissions by name:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 
 // Function to view a specific membership submission
 exports.viewMembership = async (req, res) => {

@@ -14,5 +14,7 @@ router.get('/admin/contact-messages', contactController.displayContactMessagesPa
 // Route for deleting a contact message
 router.post('/admin/delete-message', contactController.deleteContactMessage);
 
+// Route for searching contact messages by name
+router.get('/admin/search-messages', contactController.searchContactMessagesByName); 
 
 module.exports = router;
