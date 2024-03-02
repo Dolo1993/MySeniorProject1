@@ -2,8 +2,8 @@
 <h1>Messages Received</h1>  
 
 <form action="/admin/search-messages" method="GET">
-    <input type="text" name="name" placeholder="Search by Name" style="width: 80%; max-width: 200px;">
-    <button type="submit" style="font-size: 16px;">Search</button>
+    <input type="text" name="name" placeholder="Search by Name">
+    <button type="submit">Search</button>
 </form> 
 
 <ul class="contact-list">
@@ -16,7 +16,7 @@
             <form class="delete-form" action="/admin/delete-message" method="POST">
                 <input type="hidden" name="messageId" value="<%= message.id %>">
                 <input type="hidden" name="confirmDelete" value="true"> 
-                <button type="submit" class="delete-btn" style="font-size: 16px;">Delete</button>
+                <button type="submit" class="delete-btn">Delete</button>
             </form>
         </li>
     <% }) %>

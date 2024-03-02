@@ -2,8 +2,8 @@
 <h1>Form Received</h1>  
 
 <form action="/admin/search-membership" method="GET">
-    <input type="text" name="name" placeholder="Search by name" style="width: 80%; max-width: 200px;">
-    <button type="submit" style="font-size: 16px;">Search</button>
+    <input type="text" name="name" placeholder="Search by name">
+    <button type="submit">Search</button>
 </form> 
 <a href="/admin/membership">All Members</a>
 
@@ -18,7 +18,7 @@
             <form class="delete-form" action="/admin/delete-membership" method="POST">
                 <input type="hidden" name="submissionId" value="<%= submission.id %>">
                 <input type="hidden" name="confirmDelete" value="false"> 
-                <button type="submit" class="delete-btn" style="font-size: 16px;">Delete</button>
+                <button type="submit" class="delete-btn">Delete</button>
             </form>
         </li>
     <% }) %>
