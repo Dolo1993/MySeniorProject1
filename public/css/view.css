@@ -1,8 +1,117 @@
+/* body  */
+body { 
+  font-family: Arial, sans-serif;
+} 
+
+/* contact messages */
+
+
+ul.contact-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.contact-list li strong {
+  font-weight: bold;
+}
+
+.delete-btn {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;  
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #d1452a;
+}
+
+h1 {
+  font-size: 25px;  
+  color:green;
+  margin-top: 40px; 
+}
+
+/* membership */
+ul.membership-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.membership-list li {
+  margin-bottom: 20px; 
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.membership-list li strong {
+  font-weight: bold;
+}
+
+.membership-list li a {
+  text-decoration: none;
+  color: #007bff;  
+  margin-right: 10px;
+}
+
+.membership-list li a:hover {
+  text-decoration: underline;
+}
+
+.delete-btn {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;  
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #d1452a;
+}
+
+/* view details page */  
+.page-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+}
+
+/* Heading */
+h3 {
+  font-size: 24px; 
+  color: #008000;
+  margin-bottom: 20px;
+}
+
+ 
 @media screen and (max-width: 600px) {
-  input[type="text"],
-  button[type="submit"] {
-    font-size: 16px !important;
-    width: 80% !important;
-    max-width: 200px !important;
+  .delete-btn {
+      font-size: 20px;
   }
+  
+  
+  input[type="text"] {
+      width: 70%;  
+      font-size: 20px;
+      max-width: 400px;
+  } 
+   
+   button[type="submit"] {
+    font-size: 20px;
+}
 }
