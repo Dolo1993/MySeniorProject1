@@ -97,4 +97,17 @@ h3 {
   color: #008000;
   margin-bottom: 20px;
 }
- 
+
+/* Adjustments for small screens */
+@media screen and (max-width: 600px) {
+  .delete-btn,
+  input[type="text"],
+  button[type="submit"] {
+    font-size: 16px; /* Reduced font size for small screens */
+  }
+
+  input[type="text"] {
+    width: 80%;
+    max-width: 200px;
+  }
+}
