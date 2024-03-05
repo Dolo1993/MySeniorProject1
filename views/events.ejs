@@ -5,31 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUP Events</title>
- 
     <link rel="stylesheet" href="/css/announcements_events.css">
 </head>
 
 <body>
     <header>
-        
         <div class="logo">
             <img src="images/logo.jpg" alt="SUP Logo">
-        </div> 
+        </div>
         <div class="social-media">
             <!-- social media links and icons -->
             <a href="link-to-facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
-            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>   
+            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
         </div>
-        <!-- Navigation -->
         <nav>
             <!-- Regular navigation for larger screens -->
             <ul>
-                <li><a href="./">Home</a></li> 
+                <li><a href="./">Home</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="/membership">Membership</a></li>
-                <li><a href="#about">About SUP</a></li> 
-                <li><a href="/sup_chairs">SUP Chairs</a></li>  
-                <li><a href="/gallery">SUP Gallery</a></li> 
+                <li><a href="#about">About SUP</a></li>
+                <li><a href="/sup_chairs">SUP Chairs</a></li>
+                <li><a href="/gallery">SUP Gallery</a></li>
             </ul>
 
             <!-- Dropdown select box for small screens -->
@@ -39,43 +36,33 @@
                 <option value="/contact">Contact Us</option>
                 <option value="/membership">Membership</option>
                 <option value="#about">About SUP</option>
-                <option value="/sup_chairs">SUP Chairs</option> 
+                <option value="/sup_chairs">SUP Chairs</option>
                 <option value="/gallery">SUP Gallery</option>
             </select>
-        </nav> 
+        </nav>
 
         <!-- Hero Image -->
         <div class="hero">
-            <img src="images/event_hero.jpg" alt="SUP Hero Image"> 
+            <img src="images/event_hero.jpg" alt="SUP Hero Image">
             <h4>Vanguard Student Unification Party</h4>
             <h1><span class="letter-S">s</span><span class="letter-U">u</span><span class="letter-P">p</span></h1>
             <p>By The Masses, For The Masses, and Of The Masses</p>
         </div>
     </header>
     <main>
-        <section id="events">
-            <h2>Upcoming Events</h2>
-            <div id="events-container">
-                <% events.forEach(function(event) { %>
-                    <div>
-                        <img src="<%= event.image %>" alt="<%= event.title %> Image">
-                        <h3><%= event.title %></h3> 
-                        <p>Date: <%= event.date %>, Time: <%= event.time %></p>
-                        <p><%= event.description %></p>
-                    </div>
-                <% }); %>
-            </div>
-        </section>
+        <h1>Upcoming Events</h1>
+        <ul id="eventsList">
+            <% events.forEach(event => { %>
+                <li>
+                    <span class="event-title"><%= event.title %></span>
+                    <span class="event-date"><%= event.date %></span>
+                    <span class="event-time"><%= event.time %></span>
+                    <span class="event-description"><%= event.description %></span>
+                </li>
+            <% }); %>
+        </ul>
     </main>
-    <footer>
-        <div class="social-media">
-            <!-- social media-->
-            <a href="link-to-facebook" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
-            <a href="link-to-instagram" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>   
-        </div>
-        <p>&copy; 2023 Vanguard Student Unification Party. All Rights Reserved.</p>
-        <p><a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
-    </footer> 
+    
 </body>
 
 </html>

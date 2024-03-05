@@ -115,3 +115,43 @@ numVisits++;
 // Store the new number of visits value
 localStorage.setItem("visits-ls", numVisits);
 
+// Function to populate edit form fields with event details on the event management page
+function editEvent(id, title, date, time, description) {
+    document.getElementById('eventId').value = id;
+    document.getElementById('editTitle').value = title;
+
+    // Format the date without time zone information
+    const dateFormatted = new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).replace(/\//g, '-');
+
+    document.getElementById('editDate').value = dateFormatted;
+
+    // Time format HH:mm
+    const timeFormatted = new Date('1970-01-01T' + time + ':00').toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+
+    document.getElementById('editTime').value = timeFormatted;
+
+    document.getElementById('editDescription').value = description;
+
+    // Form action with the event ID
+    document.getElementById('updateEventForm').action = "/admin/event/update/" + id;
+
+    // Clear any previous error messages
+    const errorMessages = document.getElementsByClassName('error-message');
+    for (let i = 0; i < errorMessages.length; i++) {
+        errorMessages[i].innerText = "";
+    }
+
+    // Hide the edit form if it was previously displayed
+    document.getElementById('editEventForm').style.display = 'none';
+
+    // Display the edit form
+    document.getElementById('editEventForm').style.display = 'block';
+}

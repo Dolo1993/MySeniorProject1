@@ -21,7 +21,19 @@ CREATE TABLE IF NOT EXISTS contact_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
 
+-- event tble
+CREATE TABLE IF NOT EXISTS events (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    description TEXT NOT NULL
+);
+
+
+
 --  added date column in the table
 ALTER TABLE membership
 ADD COLUMN date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
+ALTER TABLE events ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;

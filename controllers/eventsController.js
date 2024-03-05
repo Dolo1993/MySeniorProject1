@@ -1,24 +1,80 @@
-// Sample events data
-const eventsData = [
-    {
-        id: 1,
-        title: 'Event 1',
-        date: '2023-12-31',
-        time: '12:00 PM',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        image: 'images/event1.jpg'
-    },
-    {
-        id: 2,
-        title: 'Event 2',
-        date: '2024-01-15',
-        time: '2:30 PM',
-        description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-        image: 'images/event2.jpg'
-    }
-];
+const eventModel = require('../models/eventModel');
 
-//  Rendering the events page
-exports.renderEventsPage = (req, res) => {
-    res.render('events', { events: eventsData });
+// Rendering the events page
+exports.renderEventsPage = async (req, res) => {
+    try {
+        // Fetch all events from the database
+        const events = await eventModel.getAllEvents();
+        res.render('events', { events });
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        res.status(500).send('Internal Server Error');
+    }
 };
+
+// Function to render the event management page
+exports.renderEventManagementPage = async (req, res) => {
+    try {
+        // Fetch all events from the database
+        const events = await eventModel.getAllEvents();
+        res.render('admin/event', { events });
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+// Function to create a new event
+exports.createEvent = async (req, res) => {
+    try {
+        const { title, date, time, description } = req.body;
+        console.log(req.body); // Log form data for debugging
+
+        // Create the new event in the database
+        await eventModel.createEvent(title, date, time, description);
+
+        // Redirect to the event management page
+        res.redirect('/admin/event');
+    } catch (error) {
+        console.error('Error creating event:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+// Function to update an existing event
+exports.updateEvent = async (req, res) => {
+    try {
+        const eventId = req.params.id;
+        const { title, date, time, description } = req.body;
+
+        // Update the event in the database  
+        await eventModel.updateEvent(eventId, title, date, time, description);
+
+        // Redirect to the event management page
+        res.redirect('/admin/event');
+    } catch (error) {
+        console.error('Error updating event:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+
+
+// Function to delete an event
+exports.deleteEvent = async (req, res) => {
+    try {
+        const eventId = req.params.id;
+
+        // Delete the event from the database
+        await eventModel.deleteEvent(eventId);
+
+        // Redirect to the event management page
+        res.redirect('/admin/event');
+    } catch (error) {
+        console.error('Error deleting event:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+module.exports = exports;

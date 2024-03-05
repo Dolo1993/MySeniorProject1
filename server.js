@@ -2,7 +2,8 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); 
+const methodOverride = require('method-override');
 const db = require('./database/db');
 const membershipController = require('./controllers/membershipController');
  
@@ -58,7 +59,8 @@ app.use('/', contactRoutes);
 app.use('/', membershipRoutes);
 app.use('/', sup_chairsRoutes);
 app.use('/', galleryRoutes);
-app.use('/admin', supManagementRoutes);
+app.use('/admin', supManagementRoutes); 
+app.use(methodOverride('_method'));
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
