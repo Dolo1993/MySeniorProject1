@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUP Management</title>
+    <link rel="stylesheet" href="/css/announcementManagement.css">
+</head>
+
+<body> 
+    <% if (typeof error !== 'undefined' && error !== null) { %>
+        <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <h1>Announcement Management</h1>
+    <h2>Create New Announcement</h2>
+    <form id="create-form" action="/admin/announcement/create" method="POST">
+        <label for="create-title">Title:</label>
+        <input type="text" id="create-title" name="title" required><br>
+        <span id="create-title-error" class="error-message"></span><br>
+
+        <label for="create-content">Content:</label><br>
+        <textarea id="create-content" name="content" rows="4" cols="50" required></textarea><br>
+        <span id="create-content-error" class="error-message"></span><br>
+
+        <button type="submit">Create Announcement</button>
+    </form>
+
+    <!--Existing Announcements -->
+    <h2>Existing Announcements</h2>
+    <ul>
+        <% announcements.forEach(announcement => { %>
+        <li>
+            <div class="announcement-item">
+                <div class="announcement-details">
+                    <strong><%= announcement.title %></strong>
+                    <p><%= announcement.content %></p>
+                    <p class="announcement-date">Date Posted: <%= new Date(announcement.date).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' }) %></p>
+                </div>
+                <button class="toggle-update-form">Update</button>
+                <form class="update-form" action="/admin/announcement/<%= announcement.id %>/update" method="POST">
+                    <label for="update-title">Title:</label>
+                    <input type="text" id="update-title" name="title" value="<%= announcement.title %>" required><br><br>
+                    <label for="update-content">Content:</label><br>
+                    <textarea id="update-content" name="content" rows="4" cols="50" required><%= announcement.content %></textarea><br><br>
+                    <button type="submit">Update</button>
+                </form>
+                <form action="/admin/announcement/<%= announcement.id %>/delete" method="POST">
+                    <button type="submit" class="delete-button">Delete</button>
+                  </form>
+                  
+            </div>
+        </li>
+        <% }) %>
+    </ul> 
+    <script src="/js/announcementValidation.js"></script>
+</body>  
+</html>

@@ -23,35 +23,36 @@ header {
     text-align: center;
 }
 
- /* Regular navigation styles */
+/* Regular navigation styles */
 nav ul {
     list-style: none;
 }
-
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 90px; 
 }
-
 nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     transition: color 0.3s ease-in-out;
 }
-
 nav a:hover {
     color: #351C15; 
 }
 
-/* Style for the dropdown select box */
-nav select {
+
+/*for the dropdown menu */
+nav select { 
+    font-size: 18px;
     display: none;
     float: right;
     margin: 10px;
     padding: 5px;
-}
+}  
+
+
 /* hero section */
 .hero {
     position: relative;

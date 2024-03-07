@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUP Announcements</title> 
-
+    <title>SUP Announcements</title>
     <link rel="stylesheet" href="/css/announcements_events.css">
-
-     
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 
@@ -57,18 +54,19 @@
     </header>
     <main>
         <section id="announcements">
-            <h2>Announcements</h2>
+            <h2 class="section-title">Announcements</h2>
             <div id="announcements-container">
                 <% announcements.forEach(function(announcement) { %>
-                    <div>
-                        <h3><%= announcement.title %></h3>
-                        <p><%= announcement.content %></p>
-                        <p>Date Posted: <%= announcement.date %></p>
-                    </div>
+                    <article class="announcement">
+                        <h3 class="announcement-title"><%= announcement.title %></h3>
+                        <p class="announcement-content"><%= announcement.content %></p>
+                        <p class="announcement-date">Date Posted: <%= new Date(announcement.date).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' }) %></p>
+                    </article>
                 <% }); %>
             </div>
         </section>
     </main>
+    
     <footer>
         <div class="social-media">
             <!-- social media-->
@@ -78,30 +76,6 @@
         <p>&copy; 2023 Vanguard Student Unification Party. All Rights Reserved.</p>
         <p><a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
     </footer>
-    <script src="scripts/home.js"></script>
-
-    <!-- Vue.js script -->
-    <script>
-        new Vue({
-            el: '#announcements-container',
-            data: {
-                announcements: [
-                    {
-                        id: 1,
-                        title: 'Announcement 1',
-                        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                        date: '2023-12-01'
-                    },
-                    {
-                        id: 2,
-                        title: 'Announcement 2',
-                        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-                        date: '2023-12-15'
-                    },
-                ]
-            }
-        });
-    </script>
 </body>
 
 </html>

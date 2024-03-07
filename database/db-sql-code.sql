@@ -30,6 +30,14 @@ CREATE TABLE IF NOT EXISTS events (
     description TEXT NOT NULL
 );
 
+-- announcement table
+CREATE TABLE announcements (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    date TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 
 
 --  added date column in the table

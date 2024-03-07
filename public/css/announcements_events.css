@@ -22,37 +22,37 @@ header {
     padding: 20px; 
     text-align: center;
 }
- /* Regular navigation styles */
+/* Regular navigation styles */
 nav ul {
     list-style: none;
 }
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 90px; 
 }
 nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     transition: color 0.3s ease-in-out;
 }
 nav a:hover {
     color: #351C15; 
-} 
+}
 
 
 
 
 
-/*dropdown menu */
-nav select {
+/*for the dropdown menu */
+nav select { 
+    font-size: 18px;
     display: none;
     float: right;
     margin: 10px;
     padding: 5px;
 } 
-
 
 /* hero section */
 .hero {
@@ -212,7 +212,45 @@ main h1 {
     color: #ffffff;  
 }
 
+/* announcement views */
+#announcements-container .announcement {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(135deg, #000000, #2ecc71);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+}
 
+/* Hover effect */
+#announcements-container .announcement:hover {
+    transform: translateY(-5px);
+}
+
+/* Announcement title styles */
+#announcements-container .announcement-title {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+/* Announcement content styles */
+#announcements-container .announcement-content {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* Announcement date styles */
+#announcements-container .announcement-date {
+    font-style: italic;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 8px;
+}
 
   
 /*for small screens */
