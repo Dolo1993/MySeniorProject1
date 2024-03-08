@@ -108,9 +108,9 @@ main h3{
     background-color: khaki; 
     color: #000;
     position: absolute;
-    top: 75%;
+    top: 80%;
     left: 50%;  
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold; 
     font-family: 'Courier New', Courier, monospace;
     transform: translate(-50%, -50%);

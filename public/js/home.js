@@ -1,10 +1,11 @@
-//to handle navigation 
-document.getElementById('mobile-nav').addEventListener('change', function () {
-    var selectedOption = this.value;
+// Handle navigation efficiently
+document.getElementById('mobile-nav').addEventListener('change', function(event) {
+    var selectedOption = event.target.value;
     if (selectedOption) {
         window.location.href = selectedOption;
     }
 });
+
 
 
 
