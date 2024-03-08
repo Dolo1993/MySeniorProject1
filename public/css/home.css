@@ -77,7 +77,6 @@ nav select {
     transform: translate(-50%, -50%);
     color: #fff;
     font-size: 4.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
     font-weight: bold;
 }  
 .hero h4{ 
@@ -93,7 +92,8 @@ nav select {
 .hero p { 
     background-color: khaki; 
     color: #000;
-    position: absolute;
+    position: absolute;  
+    font-size: 25px;
     top: 70%;
     left: 50%; 
     font-weight: bold; 
@@ -269,7 +269,7 @@ h2 {
 #text p {
   color: rgb(20, 10, 10);
   font-family:Verdana, Geneva, Tahoma, sans-serif; 
-  line-height: 1.5; 
+  line-height: 1.5;  
   max-width: 800px;
   
 }
@@ -385,7 +385,8 @@ footer {
     padding: 40px 0;
 } 
 footer P{ 
-   color: #fff;
+   color: #fff; 
+   font-size: 18px;
    font-weight: bold; 
    text-align: center;
 }
