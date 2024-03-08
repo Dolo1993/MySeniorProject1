@@ -1,4 +1,3 @@
-// Import the database connection pool
 const pool = require('../database/db');
 
 // Function to fetch all announcements

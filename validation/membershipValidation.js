@@ -44,7 +44,7 @@ function isValidEmail(email) {
 
 // Function to validate phone number format
 function isValidPhoneNumber(phone) {
-    // Basic phone number format validation regex
+
     const phoneRegex = /^\d{10}$/;  
     return phoneRegex.test(phone);
 }

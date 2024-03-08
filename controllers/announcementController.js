@@ -1,7 +1,7 @@
 const announcementModel = require('../models/announcementModel');
 const pool = require('../database/db');
 
-// Rendering the announcement page
+// Rendering the announcement page (client side)
 exports.renderAnnouncementPage = (req, res) => {
     pool.query('SELECT * FROM announcements ORDER BY date DESC', (err, result) => {
         if (err) {

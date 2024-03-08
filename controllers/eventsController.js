@@ -8,7 +8,7 @@ exports.renderEventsPage = async (req, res) => {
         res.render('events', { events });
     } catch (error) {
         console.error('Error fetching events:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -20,7 +20,7 @@ exports.renderEventManagementPage = async (req, res) => {
         res.render('admin/event', { events });
     } catch (error) {
         console.error('Error fetching events:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -28,7 +28,7 @@ exports.renderEventManagementPage = async (req, res) => {
 exports.createEvent = async (req, res) => {
     try {
         const { title, date, time, description } = req.body;
-        console.log(req.body); // Log form data for debugging
+        console.log(req.body)
 
         // Create the new event in the database
         await eventModel.createEvent(title, date, time, description);
@@ -37,7 +37,7 @@ exports.createEvent = async (req, res) => {
         res.redirect('/admin/event');
     } catch (error) {
         console.error('Error creating event:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -55,7 +55,7 @@ exports.updateEvent = async (req, res) => {
         res.redirect('/admin/event');
     } catch (error) {
         console.error('Error updating event:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -73,7 +73,7 @@ exports.deleteEvent = async (req, res) => {
         res.redirect('/admin/event');
     } catch (error) {
         console.error('Error deleting event:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 

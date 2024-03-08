@@ -11,7 +11,7 @@ async function saveContactMessage(name, email, message) {
 
     try {
         const result = await pool.query(query, values);
-        return result.rows[0]; // Return the inserted row
+        return result.rows[0];
     } catch (error) {
         throw error;
     }

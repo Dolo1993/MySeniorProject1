@@ -17,7 +17,7 @@ exports.displayContactMessagesPage = async (req, res) => {
         res.render('admin/contact-messages', { contactMessages });
     } catch (error) {
         console.error('Error fetching contact messages:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -34,7 +34,7 @@ exports.searchContactMessagesByName = async (req, res) => {
         res.render('admin/contact-messages', { contactMessages });
     } catch (error) {
         console.error('Error searching contact messages by name:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -64,7 +64,7 @@ exports.submitContactForm = async (req, res) => {
         res.redirect('/contact');
     } catch (error) {
         console.error('Error submitting contact form:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -76,7 +76,7 @@ exports.displayContactMessagesPage = async (req, res) => {
         res.render('admin/contact-messages', { contactMessages });
     } catch (error) {
         console.error('Error fetching contact messages:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 
@@ -96,7 +96,7 @@ exports.deleteContactMessage = async (req, res) => {
         res.redirect('/admin/contact-messages');
     } catch (error) {
         console.error('Error deleting contact message:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('Internal Server Error');
     }
 };
 

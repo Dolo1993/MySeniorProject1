@@ -9,7 +9,7 @@ exports.getSupManagementPage = async (req, res) => {
         // Fetch contact messages
         const contactMessages = await contactModel.getAllContactMessages();
         
-        res.render('admin/supManagement', { membershipSubmissions, contactMessages }); // Corrected file name and path
+        res.render('admin/supManagement', { membershipSubmissions, contactMessages }); 
     } catch (error) {
         console.error('Error fetching SUP Management data:', error);
         res.status(404).send('Internal Server Error');
