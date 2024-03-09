@@ -17,7 +17,8 @@ const contactRoutes = require('./routes/contactRoutes');
 const membershipRoutes = require('./routes/membershipRoutes');
 const sup_chairsRoutes = require('./routes/sup_chairsRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
-const supManagementRoutes = require('./routes/supManagementRoutes');
+const supManagementRoutes = require('./routes/supManagementRoutes'); 
+const aboutRoute = require('./routes/aboutRoute')
 
 const app = express();
 
@@ -58,7 +59,8 @@ app.use('/', eventsRoutes);
 app.use('/', contactRoutes);
 app.use('/', membershipRoutes);
 app.use('/', sup_chairsRoutes);
-app.use('/', galleryRoutes);
+app.use('/', galleryRoutes); 
+app.use('/', aboutRoute);
 app.use('/admin', supManagementRoutes); 
 app.use(methodOverride('_method'));
 

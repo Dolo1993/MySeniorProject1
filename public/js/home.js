@@ -6,9 +6,6 @@ document.getElementById('mobile-nav').addEventListener('change', function(event)
     }
 });
 
-
-
-
 // to handle slow appearing on the contact page
 document.addEventListener("DOMContentLoaded", function() {
     const leaders = document.querySelectorAll('.leader');

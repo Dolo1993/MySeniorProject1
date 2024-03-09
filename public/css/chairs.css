@@ -184,15 +184,36 @@ main {
     border-bottom-right-radius: 8px;
 }
 
- 
+/* aboutme page */ 
+#about {
+    padding: 20px;
+    background-color: khaki;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
+#about h2 {
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
+#about p {
+    color: #555;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
 
+#about p:last-child {
+    margin-bottom: 0;
+}
 
  /* footer */ 
  footer {
     background-color: #333;
-    padding: 40px 0;
+    padding: 40px 0; 
 } 
 footer P{ 
    color: #fff;
