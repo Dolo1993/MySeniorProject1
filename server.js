@@ -5,7 +5,8 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser'); 
 const methodOverride = require('method-override');
 const db = require('./database/db');
-const membershipController = require('./controllers/membershipController');
+const membershipController = require('./controllers/membershipController'); 
+const privacyPolicyRoute = require('./routes/privacyPolicyRoute');
  
 // Environment variables loaded
 dotenv.config();
@@ -18,7 +19,7 @@ const membershipRoutes = require('./routes/membershipRoutes');
 const sup_chairsRoutes = require('./routes/sup_chairsRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
 const supManagementRoutes = require('./routes/supManagementRoutes'); 
-const aboutRoute = require('./routes/aboutRoute')
+const aboutRoute = require('./routes/aboutRoute') 
 
 const app = express();
 
@@ -60,7 +61,8 @@ app.use('/', contactRoutes);
 app.use('/', membershipRoutes);
 app.use('/', sup_chairsRoutes);
 app.use('/', galleryRoutes); 
-app.use('/', aboutRoute);
+app.use('/', aboutRoute); 
+app.use('/', privacyPolicyRoute);
 app.use('/admin', supManagementRoutes); 
 app.use(methodOverride('_method'));
 

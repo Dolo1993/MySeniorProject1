@@ -4,8 +4,6 @@
     padding: 0;
 } 
 
-
-
 /* body styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -389,7 +387,15 @@ footer P{
    font-size: 18px;
    font-weight: bold; 
    text-align: center;
+} 
+
+.privacy-policy-link { 
+    font-size: 20px;
+    color: white; 
+    font-weight: bold; 
+    
 }
+
 /* social styles */
 .social-media a { 
     float: right;
