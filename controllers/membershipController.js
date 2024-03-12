@@ -5,8 +5,8 @@ const pdfGenerator = require('../utils/pdfGenerator');
 // Function to render the membership page
 exports.getMembershipPage = (req, res) => {
     const successMessage = req.session.successMessage;
-    delete req.session.successMessage; 
-    res.render('membership', { successMessage });  
+    delete req.session.successMessage;
+    res.render('membership', { successMessage });
 };
 
 // Function to handle form submission
@@ -26,7 +26,7 @@ exports.submitMembershipForm = async (req, res) => {
             return res.status(400).render('membership', { errors: Object.values(errors) });
         }
 
-        //current date
+        // current date
         const currentDate = new Date();
 
         // Add the date to the form data
@@ -35,11 +35,9 @@ exports.submitMembershipForm = async (req, res) => {
         // Process form data and insert into the database
         await membershipModel.createMembership(formData);
 
-        // Set success message in session
-        req.session.successMessage = 'Membership form submitted successfully';
+        // Render success page
+        res.render('success');
 
-        // Redirect back to membership page
-        res.redirect('/membership');
     } catch (error) {
         console.error('Error submitting membership form:', error);
         res.status(500).send('Internal Server Error');
@@ -117,7 +115,7 @@ exports.deleteMembership = async (req, res) => {
         }
         // Delete the membership submission from the database
         await membershipModel.deleteMembership(submissionId);
-        res.redirect('/admin/membership');  
+        res.redirect('/admin/membership');
     } catch (error) {
         console.error('Error deleting membership submission:', error);
         res.status(500).send('Internal Server Error');

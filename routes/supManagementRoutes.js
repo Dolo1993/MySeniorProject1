@@ -12,3 +12,5 @@ router.post('/delete-membership', supManagementController.deleteMembershipSubmis
 router.post('/delete-message', supManagementController.deleteContactMessage);
 
 module.exports = router;
+ 
+ 

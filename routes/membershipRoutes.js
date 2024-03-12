@@ -4,7 +4,9 @@ const membershipController = require('../controllers/membershipController');
 
 // Route for displaying the membership page
 router.get('/membership', (req, res) => {
-    res.render('membership', { errors: [] });
+    const errors = req.session.errors || [];
+    delete req.session.errors;
+    res.render('membership', { errors });
 });
 
 // Route for handling form submission
@@ -22,13 +24,7 @@ router.get('/admin/download-membership/:id', membershipController.downloadMember
 // Route for deleting a membership submission
 router.post('/admin/delete-membership', membershipController.deleteMembership);
 
-
-// Route for displaying the membership management page 
-router.get('/admin/membership', membershipController.displayMembershipManagementPage);
-
 // Route for searching membership by name
 router.get('/admin/search-membership', membershipController.searchMembershipByName);
-
-
 
 module.exports = router;

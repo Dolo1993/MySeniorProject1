@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sup Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .success-message {
+            background-color: #4caf50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .success-message p {
+            margin: 0;
+            font-size: 18px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #008cba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005f74;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <p>Hooray! Welcome to the Vanguard Student Unification Party!</p> 
+        <p>Your membership form has been submitted successfully.</p>
+        <p>We are glad to have you on board. Our membership team will contact you as soon as possible.</p>
+    </div>
+    <button onclick="goBack()">Go Back to Membership Form</button>
+
+    <script>
+        function goBack() {
+            //back to the membership 
+            window.location.href = "/membership";
+        }
+    </script>
+</body>
+</html>

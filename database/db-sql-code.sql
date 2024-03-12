@@ -1,5 +1,5 @@
--- Table structure for the 'membership table'
 
+-- Table structure for the 'membership table'
 CREATE TABLE IF NOT EXISTS membership (
     id SERIAL PRIMARY KEY,
     fullname VARCHAR(100) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE announcements (
 
 
 
---  added date column in the table
+--  added date column in announcement the table
 ALTER TABLE membership
 ADD COLUMN date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
