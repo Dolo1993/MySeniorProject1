@@ -7,14 +7,18 @@
 </form> 
 <a href="/admin/membership">All Members</a>
 
-<ul class="membership-list">
+<ul class="membership-list membership-items">
     <% membershipSubmissions.forEach(submission => { %>
         <li>
-            <strong>Name:</strong> <%= submission.fullname %><br>
-            <strong>Email:</strong> <%= submission.email %><br> 
-            <strong>Date Received:</strong> <%= submission.date_sent.toDateString() %><br> 
-            <a href="/admin/view-membership/<%= submission.id %>" target="_blank">View Form</a>
-            <a href="/admin/download-membership/<%= submission.id %>">Download Form</a>
+            <div class="submission-details">
+                <strong class="name">Name:</strong> <%= submission.fullname %><br>
+                <strong class="email">Email:</strong> <%= submission.email %><br> 
+                <strong class="date-received">Date Received:</strong> <%= submission.date_sent.toDateString() %><br> 
+            </div>
+            <div class="form-links">
+                <a href="/admin/view-membership/<%= submission.id %>" target="_blank">View Form</a>
+                <a href="/admin/download-membership/<%= submission.id %>">Download Form</a>
+            </div>
             <form class="delete-form" action="/admin/delete-membership" method="POST">
                 <input type="hidden" name="submissionId" value="<%= submission.id %>">
                 <input type="hidden" name="confirmDelete" value="false"> 
@@ -23,6 +27,7 @@
         </li>
     <% }) %>
 </ul>
+
 <script>
     document.querySelectorAll('.delete-form').forEach(form => {
         form.addEventListener('submit', function(event) {
