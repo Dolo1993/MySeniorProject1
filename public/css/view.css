@@ -1,10 +1,9 @@
-/* body  */
+/* body */
 body { 
   font-family: Arial, sans-serif;
 } 
 
 /* contact messages */
-
 
 ul.contact-list {
   list-style-type: none;
@@ -25,7 +24,7 @@ ul.contact-list {
   background-color: #ff6347;
   color: #fff;
   border: none;  
-  font-size: 20px;
+  font-size: 16px; /* Adjusted font size for smaller screens */
   margin-top: 10px;
   padding: 5px 10px;
   cursor: pointer;
@@ -37,7 +36,7 @@ ul.contact-list {
 
 h1 {
   font-size: 25px;  
-  color:green;
+  color: green;
   margin-top: 40px; 
 }
 
@@ -67,20 +66,6 @@ ul.membership-list {
   text-decoration: underline;
 }
 
-.delete-btn {
-  background-color: #ff6347;
-  color: #fff;
-  border: none;  
-  font-size: 20px;
-  margin-top: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.delete-btn:hover {
-  background-color: #d1452a;
-}
-
 /* view details page */  
 .page-wrapper {
   max-width: 800px;
@@ -98,20 +83,19 @@ h3 {
   margin-bottom: 20px;
 }
 
- 
 @media screen and (max-width: 600px) {
   .delete-btn {
-      font-size: 20px;
+    font-size: 14px; /* Adjusted font size for smaller screens */
+    padding: 3px 8px; /* Adjusted padding for smaller screens */
   }
   
-  
   input[type="text"] {
-      width: 70%;  
-      font-size: 20px;
-      max-width: 400px;
+    width: 70%;  
+    font-size: 16px; /* Adjusted font size for smaller screens */
+    max-width: 400px;
   } 
-   
-   button[type="submit"] {
-    font-size: 20px;
-}
+  
+  button[type="submit"] {
+    font-size: 16px; /* Adjusted font size for smaller screens */
+  }
 }
