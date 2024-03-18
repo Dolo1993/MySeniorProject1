@@ -130,11 +130,11 @@ h3 {
   .membership-items li,
   h1,
   h3 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   /* delete button */
   .delete-btn, .membership-items .delete-btn {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
