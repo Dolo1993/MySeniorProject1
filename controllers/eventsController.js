@@ -1,6 +1,6 @@
-const eventModel = require('../models/eventModel');
+ const eventModel = require('../models/eventModel');
 
-// Rendering the events page
+// Render the events page
 exports.renderEventsPage = async (req, res) => {
     try {
         // Fetch all events from the database
@@ -8,11 +8,11 @@ exports.renderEventsPage = async (req, res) => {
         res.render('events', { events });
     } catch (error) {
         console.error('Error fetching events:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to render the event management page
+// Render the event management page
 exports.renderEventManagementPage = async (req, res) => {
     try {
         // Fetch all events from the database
@@ -20,11 +20,11 @@ exports.renderEventManagementPage = async (req, res) => {
         res.render('admin/event', { events });
     } catch (error) {
         console.error('Error fetching events:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to create a new event
+// Create a new event
 exports.createEvent = async (req, res) => {
     try {
         const { title, date, time, description } = req.body;
@@ -37,12 +37,11 @@ exports.createEvent = async (req, res) => {
         res.redirect('/admin/event');
     } catch (error) {
         console.error('Error creating event:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-
-// Function to update an existing event
+// Update an existing event
 exports.updateEvent = async (req, res) => {
     try {
         const eventId = req.params.id;
@@ -55,13 +54,11 @@ exports.updateEvent = async (req, res) => {
         res.redirect('/admin/event');
     } catch (error) {
         console.error('Error updating event:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-
-
-// Function to delete an event
+// Delete an event
 exports.deleteEvent = async (req, res) => {
     try {
         const eventId = req.params.id;
@@ -73,7 +70,7 @@ exports.deleteEvent = async (req, res) => {
         res.redirect('/admin/event');
     } catch (error) {
         console.error('Error deleting event:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 

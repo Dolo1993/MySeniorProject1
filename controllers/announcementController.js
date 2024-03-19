@@ -1,7 +1,7 @@
 const announcementModel = require('../models/announcementModel');
 const pool = require('../database/db');
 
-// Rendering the announcement page (client side)
+// Render the announcement page (client side)
 exports.renderAnnouncementPage = (req, res) => {
     pool.query('SELECT * FROM announcements ORDER BY date DESC', (err, result) => {
         if (err) {
@@ -13,7 +13,7 @@ exports.renderAnnouncementPage = (req, res) => {
     });
 };
 
-// Rendering the admin announcementManagement page
+// Render the admin announcementManagement page (Server side)
 exports.renderAnnouncementManagementPage = (req, res) => {
     pool.query('SELECT * FROM announcements ORDER BY date DESC', (err, result) => {
         if (err) {
@@ -26,7 +26,7 @@ exports.renderAnnouncementManagementPage = (req, res) => {
     });
 }; 
 
-// Function for creating a new announcement
+// Create a new announcement
 exports.createAnnouncement = async (req, res) => {
     const { title, content } = req.body;
     try {
@@ -44,7 +44,7 @@ exports.createAnnouncement = async (req, res) => {
 };
 
 
-// Function for updating an announcement
+// update an announcement
 exports.updateAnnouncement = async (req, res) => {
     const announcementId = req.params.id;
     const { title, content } = req.body;

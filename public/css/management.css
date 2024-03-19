@@ -12,7 +12,7 @@ body {
   color: #333;
 }
 
-/* the css for the management container */
+/* the management container */
 .container {
   max-width: 800px;
   margin: 50px auto;
@@ -61,6 +61,33 @@ h1 {
 .column a:hover {
   background-color: black;
 }
+
+/* logout */ 
+.logout { 
+  text-align: right;
+  margin-top: 20px; 
+  margin-right: 20px;
+}
+
+.logout form { 
+  display: inline-block; 
+
+}
+
+.logout button { 
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout button:hover {
+  background-color:#008000;
+}
+
 
 @media (max-width: 600px) {
   .columns {

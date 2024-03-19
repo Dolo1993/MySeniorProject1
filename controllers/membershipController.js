@@ -2,14 +2,14 @@ const membershipModel = require('../models/membershipModel');
 const validateMembershipForm = require('../validation/membershipValidation');
 const pdfGenerator = require('../utils/pdfGenerator');
 
-// Function to render the membership page
+// Render the membership page
 exports.getMembershipPage = (req, res) => {
     const successMessage = req.session.successMessage;
     delete req.session.successMessage;
     res.render('membership', { successMessage });
 };
 
-// Function to handle form submission
+// Handle form submission
 exports.submitMembershipForm = async (req, res) => {
     try {
         const formData = req.body;
@@ -40,11 +40,11 @@ exports.submitMembershipForm = async (req, res) => {
 
     } catch (error) {
         console.error('Error submitting membership form:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to render the membership management page 
+// Render the membership management page 
 exports.displayMembershipManagementPage = async (req, res) => {
     try {
         // Fetch all membership submissions from the database
@@ -52,29 +52,27 @@ exports.displayMembershipManagementPage = async (req, res) => {
         res.render('admin/membership', { membershipSubmissions });
     } catch (error) {
         console.error('Error fetching membership submissions:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to search membership submissions by name
+// Search membership submissions by name
 exports.searchMembershipByName = async (req, res) => {
     try {
         const name = req.query.name;
         if (!name) {
             return res.status(400).send('Name parameter is missing');
         }
-
-        // Search membership submissions by name
         const membershipSubmissions = await membershipModel.searchMembershipByName(name);
         res.render('admin/membership', { membershipSubmissions });
     } catch (error) {
         console.error('Error searching membership submissions by name:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
 
-// Function to view a specific membership submission
+// View a specific membership submission
 exports.viewMembership = async (req, res) => {
     try {
         const submission = await membershipModel.getMembershipById(req.params.id);
@@ -89,12 +87,12 @@ exports.viewMembership = async (req, res) => {
     }
 };
 
-// Function to download a membership form
+// Download a membership form
 exports.downloadMembership = async (req, res) => {
     try {
         const submission = await membershipModel.getMembershipById(req.params.id);
         if (!submission) {
-            return res.status(404).send('Membership submission not found');
+            return res.status(400).send('Membership submission not found');
         }
         // Generate PDF file using utility function
         const pdfFilePath = await pdfGenerator.generatePDF(submission);
@@ -102,11 +100,11 @@ exports.downloadMembership = async (req, res) => {
         res.download(pdfFilePath, 'membership_form.pdf');
     } catch (error) {
         console.error('Error downloading membership form:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to delete a membership submission
+// Delete a membership submission
 exports.deleteMembership = async (req, res) => {
     try {
         const { submissionId, confirmDelete } = req.body;
@@ -118,7 +116,7 @@ exports.deleteMembership = async (req, res) => {
         res.redirect('/admin/membership');
     } catch (error) {
         console.error('Error deleting membership submission:', error);
-        res.status(500).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 

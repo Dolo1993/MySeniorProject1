@@ -1,7 +1,7 @@
 const contactModel = require('../models/contactModel');
 const validateContactForm = require('../validation/contactValidation');
 
-// Function to render the contact page
+//Render the contact page
 exports.getContactPage = (req, res) => {
     const successMessage = req.session.successMessage;
     req.session.successMessage = null;
@@ -9,7 +9,7 @@ exports.getContactPage = (req, res) => {
     res.render('contact', { errors, successMessage });
 };
 
-// Function to render the contact messages page
+// Render the contact messages page
 exports.displayContactMessagesPage = async (req, res) => {
     try {
         // Fetch all contact messages from the database in descending order
@@ -17,7 +17,7 @@ exports.displayContactMessagesPage = async (req, res) => {
         res.render('admin/contact-messages', { contactMessages });
     } catch (error) {
         console.error('Error fetching contact messages:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
@@ -34,7 +34,7 @@ exports.searchContactMessagesByName = async (req, res) => {
         res.render('admin/contact-messages', { contactMessages });
     } catch (error) {
         console.error('Error searching contact messages by name:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
@@ -64,11 +64,11 @@ exports.submitContactForm = async (req, res) => {
         res.redirect('/contact');
     } catch (error) {
         console.error('Error submitting contact form:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to render the contact messages page
+// Render the contact messages page
 exports.displayContactMessagesPage = async (req, res) => {
     try {
         // Fetch all contact messages from the database
@@ -76,11 +76,11 @@ exports.displayContactMessagesPage = async (req, res) => {
         res.render('admin/contact-messages', { contactMessages });
     } catch (error) {
         console.error('Error fetching contact messages:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 
-// Function to delete a contact message
+// Delete a contact message
 exports.deleteContactMessage = async (req, res) => {
     try {
         const messageId = req.body.messageId;
@@ -96,7 +96,7 @@ exports.deleteContactMessage = async (req, res) => {
         res.redirect('/admin/contact-messages');
     } catch (error) {
         console.error('Error deleting contact message:', error);
-        res.status(404).send('Internal Server Error');
+        res.status(404).send('404 Server Error');
     }
 };
 

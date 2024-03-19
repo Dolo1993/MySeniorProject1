@@ -1,6 +1,6 @@
 const pool = require('../database/db');
 
-// Function to fetch all announcements
+// Fetch all announcements
 exports.getAllAnnouncements = async () => {
     try {
         const result = await pool.query('SELECT * FROM announcements ORDER BY date DESC');
@@ -11,7 +11,7 @@ exports.getAllAnnouncements = async () => {
     }
 };
 
-// Function to create a new announcement and validation
+// Create a new announcement and validation
 exports.createAnnouncement = async (title, content) => {
     try {
         if (!title || !content) {
@@ -30,7 +30,7 @@ exports.createAnnouncement = async (title, content) => {
     }
 };
 
-// Function to update an existing announcement and validation
+// Update an existing announcement and validation
 exports.updateAnnouncement = async (id, title, content) => {
     try {
         if (!title || !content) {
@@ -44,7 +44,7 @@ exports.updateAnnouncement = async (id, title, content) => {
     }
 };
 
-// Function to delete an announcement
+// Delete an announcement
 exports.deleteAnnouncement = async (id) => {
     try {
         await pool.query('DELETE FROM announcements WHERE id = $1', [id]);
@@ -54,11 +54,11 @@ exports.deleteAnnouncement = async (id) => {
     }
 };
 
-// Function to fetch an announcement by title
+// Fetch an announcement by title
 exports.getAnnouncementByTitle = async (title) => {
     try {
         const result = await pool.query('SELECT * FROM announcements WHERE title = $1', [title]);
-        return result.rows[0]; // Assuming you want to return the first matching announcement
+        return result.rows[0];  
     } catch (error) {
         console.error('Error fetching announcement by title:', error);
         throw error;
