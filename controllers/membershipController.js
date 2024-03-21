@@ -49,12 +49,14 @@ exports.displayMembershipManagementPage = async (req, res) => {
     try {
         // Fetch all membership submissions from the database
         const membershipSubmissions = await membershipModel.getAllMemberships();
-        res.render('admin/membership', { membershipSubmissions });
+        const totalMemberships = membershipSubmissions.length; // Calculate total number of memberships
+        res.render('admin/membership', { membershipSubmissions, totalMemberships }); // Pass totalMemberships to the view
     } catch (error) {
         console.error('Error fetching membership submissions:', error);
         res.status(404).send('404 Server Error');
     }
 };
+
 
 // Search membership submissions by name
 exports.searchMembershipByName = async (req, res) => {
