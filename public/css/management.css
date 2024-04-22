@@ -4,77 +4,59 @@
   margin: 0;
   padding: 0;
 }
-
+ 
 /* the body */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0e68c;
   color: #333;
+  background-image: url('/images/home_hero-image.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
 /* the management container */
 .container {
-  max-width: 800px;
-  margin: 50px auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px; 
-  border: 1px solid red;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff73;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+nav .navbar {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+nav .nav-item {
+  flex-basis: 24%;
   text-align: center;
 }
 
-h1 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #ff0000;
-}
-
-.columns {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
-.column {
-  flex-basis: 40%;
-  background-color: green;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.column:hover {
-  transform: translateY(-5px);
-}
-
-.column a {
+nav .nav-item a {
   display: block;
-  padding: 20px;
-  font-size: 20px;
-  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  color: #333;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.column a:hover {
-  background-color: black;
+nav .nav-item a:hover {
+  background-color:rgba(255, 255, 255, 0.63);
 }
 
-/* logout */ 
+/* logout */
 .logout { 
+  background-color: #008000;
   text-align: right;
-  margin-top: 20px; 
+  margin-bottom: 5px;
   margin-right: 20px;
 }
 
-.logout form { 
-  display: inline-block; 
-
+.logout form {
+  display: inline-block;
 }
 
-.logout button { 
+.logout button {
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
@@ -85,18 +67,17 @@ h1 {
 }
 
 .logout button:hover {
-  background-color:#008000;
+  background-color: #008000;
 }
 
-
 @media (max-width: 600px) {
-  .columns {
+  nav .navbar {
     flex-direction: column;
     align-items: center;
   }
 
-  .column {
+  nav .nav-item {
     flex-basis: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
